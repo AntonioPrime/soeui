@@ -1,0 +1,26 @@
+<div class="container no-background">
+  <div class="row">
+    <div class="text-panel col-md-6">
+      <textarea autofocus id="signatures" name="freshSignatures" #signatures class="col-xs-12 not-resize" rows="20"></textarea><br>
+      <input type="hidden" value="${userId}" name="uid">
+      <input type="hidden" id="location" name="location">
+      <button type="button" class="link btn dark col-md-12" (click)="submit(signatures.value)">Confirm</button>
+    </div>
+    <div class="col-md-3">
+      <h3 class="new">New Signatures:</h3>
+      <ul id="new" class="list-group">
+        <li *ngFor="let n of news" class="list-group-item new-sig">
+          {{n}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <h3 class="old">Old Signatures:</h3>
+      <ul id="old" class="list-group">
+        <li *ngFor="let o of olds" class="list-group-item old-sig">
+          {{o}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
