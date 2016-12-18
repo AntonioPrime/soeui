@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: 'navbar.component.html'
 })
 export class NavBarComponent implements OnInit {
+    private loginUrl: string = 'http://' + window.location.hostname + ':8080' + '/oauth2/login';
     constructor() { }
 
     ngOnInit() { }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {SignaturesComponent} from "./signatures.component";
+import {SignaturesComponent} from './signatures.component';
 
 
 const routes: Routes = [

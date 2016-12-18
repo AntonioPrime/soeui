@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class SignaturesService {
-  private url: string = 'http://localhost:8080/ajax/signatures';
+  private url: string = 'http://' + window.location.hostname + ':8080' + '/ajax/signatures';
   private headers = new Headers({ 'Content-Type' : 'application/json' });
   private options = new RequestOptions({ headers: this.headers });
 
