@@ -1,0 +1,107 @@
+.new {
+  color: #ffffff;
+  font-family: 'Roboto';
+}
+.old {
+  color: #888888;
+  font-family: 'Roboto';
+}
+
+.new-sig {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.old-sig {
+  color: #eeeeee;
+  background-color: #666666;
+  opacity: 0.8;
+}
+
+.not-resize {
+  resize: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-style: none;
+  outline: none;
+}
+
+.white {
+  color: #ffffff;
+}
+
+body {
+  background: #222222 url("background.jpg");
+}
+
+.dark {
+  background-color: #222222;
+  font-size: larger;
+  color: #ffffff;
+}
+
+.dark-dropdown {
+  background-color: #222222;
+  color: #ffffff;
+}
+
+a.link {
+  background-color: #222222;
+  color: white;
+}
+
+a:hover.link {
+  background-color: #444444;
+  color: white;
+}
+
+.btn:hover.link {
+  background-color: #444444;
+  color: white;
+}
+
+.dropdown-menu > li > a {
+  background-color: #222222;
+  color: white;
+}
+
+.dropdown-menu > li > a:hover {
+  background-color: #444444;
+  color: white;
+}
+
+.dark-dropdown-img > li > a:hover {
+  background-color: #222222;
+  color: white;
+}
+
+
+table {
+  background-color: white;
+  opacity: 0.8;
+  color: #000;
+}
+
+.text-panel {
+  margin: 15px 0px;
+}
+
+.user-image {
+  padding: 0px;
+  margin: -8px 0px -8px 0px;
+}
+
+.no-background {
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 5px 5px rgba(6, 6, 6, 0.95);
+  margin-bottom: 50px;
+}
+
+.footer-link {
+  color: #dddddd;
+}
+
+.label {
+  margin: auto;
+  font-size: 100%;
+}
