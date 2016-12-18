@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {SignaturesService} from "./signatures.service";
+import {SignaturesService} from './signatures.service';
 
 @Component({
   moduleId: module.id,
@@ -16,7 +16,7 @@ export class SignaturesComponent implements OnInit {
   }
 
   submit(signatures: string): void {
-    $('#signatures').val("");
+    $('#signatures').val('');
     this.service.replace(signatures, 30002811).then(data => {
       this.news = data.json().new;
       this.olds = data.json().old;

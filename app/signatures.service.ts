@@ -14,7 +14,8 @@ export class SignaturesService {
   replace(fresh: string, locationId: number): Promise<any> {
     return this.http.post(this.url, JSON.stringify(
       {
-        fresh:fresh
+        fresh: fresh,
+        locationId: locationId
       }), this.options)
       .toPromise();
   }
