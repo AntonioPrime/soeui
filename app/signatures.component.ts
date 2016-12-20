@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {SignaturesService} from './signatures.service';
+import { Component, OnInit } from '@angular/core';
+import { SignaturesService } from './signatures.service';
 
 @Component({
   moduleId: module.id,
@@ -9,8 +9,9 @@ import {SignaturesService} from './signatures.service';
 export class SignaturesComponent implements OnInit {
   private news: string[] = [];
   private olds: string[] = [];
-  constructor(private service: SignaturesService) {
-  }
+  constructor(
+    private service: SignaturesService
+  ) { }
 
   ngOnInit() {
   }
