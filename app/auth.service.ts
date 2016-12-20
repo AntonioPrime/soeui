@@ -24,7 +24,7 @@ export class AuthService {
         //         'grant_type': 'authorization_code',
         //         'code': code
         //     }), options).toPromise();
-        return this.http.get('http://localhost:8080/ajax/oauth2/tokens?code=' + code).toPromise();
+        return this.http.get('http://' + window.location.hostname + ':8080/ajax/oauth2/tokens?code=' + code).toPromise();
     }
 
     public getLocation(): Promise<any> {
@@ -40,6 +40,6 @@ export class AuthService {
             'token': token
         });
         let options = new RequestOptions({ headers: headers });
-        return this.http.get('http://localhost:8080/ajax/oauth2/test', options).toPromise();
+        return this.http.get('http://' + window.location.hostname + ':8080/ajax/oauth2/test', options).toPromise();
     }
 }
