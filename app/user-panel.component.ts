@@ -40,7 +40,7 @@ export class UserPanelComponent implements OnInit {
                     }
                 }
             }
-        }, 5000);
+        }, 7000);
     }
 
     public getUser(token: string): void {
