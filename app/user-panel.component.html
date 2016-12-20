@@ -1,11 +1,11 @@
 <div class="nav navbar-nav navbar-right">
     <li *ngIf="locationName">
-        <a href="#">{{locationName}}</a>
+        <a>{{locationName}}</a>
     </li>
     <li *ngIf="user">
-        <a href="#">{{user.userName}}</a>
+        <a>{{user.userName}}</a>
     </li>
-    <a href="{{loginUrl}}">
+    <a *ngIf="!user" href="{{loginUrl}}">
         <img alt="EVE SSO Login Buttons Large Black" src="https://images.contentful.com/idjq7aai9ylm/4fSjj56uD6CYwYyus4KmES/4f6385c91e6de56274d99496e6adebab/EVE_SSO_Login_Buttons_Large_Black.png?w=270&amp;h=45">
     </a>
 </div>
