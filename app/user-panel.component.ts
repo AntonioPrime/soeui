@@ -65,4 +65,10 @@ export class UserPanelComponent implements OnInit {
     private timeStamp(): string {
         return (Date.now() + (1170 * 1000)).toString();
     }
+
+    private logOut(): void {
+        localStorage.clear();
+        this.user = null;
+        this.locationName = null;
+    }
 }

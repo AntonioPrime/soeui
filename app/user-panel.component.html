@@ -3,7 +3,7 @@
         <a>{{locationName}}</a>
     </li>
     <li *ngIf="user">
-        <a>{{user.userName}}</a>
+        <a (click)="logOut()">{{user.userName}}</a>
     </li>
     <a *ngIf="!user" href="{{loginUrl}}">
         <img alt="EVE SSO Login Buttons Large Black" src="https://images.contentful.com/idjq7aai9ylm/4fSjj56uD6CYwYyus4KmES/4f6385c91e6de56274d99496e6adebab/EVE_SSO_Login_Buttons_Large_Black.png?w=270&amp;h=45">
