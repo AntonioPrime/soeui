@@ -24,6 +24,7 @@ export class AuthComponent implements OnInit, OnDestroy {
                     this.service.getTokens(code).then(r => {
                         localStorage.setItem('token', r.json().access_token);
                         localStorage.setItem('refresh_token', r.json().refresh_token);
+                        localStorage.setItem('time_stamp', this.timeStamp());
                     });
                 }
                 //this.router.navigate(['/signatures']);
@@ -32,5 +33,9 @@ export class AuthComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         // prevent memory leak by unsubscribing
         this.subscription.unsubscribe();
+    }
+
+    private timeStamp(): string {
+        return (Date.now() + (1170 * 1000)).toString();
     }
 }

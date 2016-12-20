@@ -27,12 +27,12 @@ export class AuthService {
         return this.http.get('http://' + window.location.hostname + ':8080/ajax/oauth2/tokens?code=' + code).toPromise();
     }
 
-    public getLocation(): Promise<any> {
+    public getLocation(userId: string): Promise<any> {
         let headers = new Headers({
-
+            'Authorization' : 'Bearer ' + localStorage.getItem('token')
         });
         let options = new RequestOptions({ headers: headers });
-        return this.http.get('', options).toPromise();
+        return this.http.get('https://crest-tq.eveonline.com/characters/' + userId + '/location/', options).toPromise();
     }
 
     public getUser(token: string): Promise<Response> {
@@ -41,5 +41,9 @@ export class AuthService {
         });
         let options = new RequestOptions({ headers: headers });
         return this.http.get('http://' + window.location.hostname + ':8080/ajax/oauth2/test', options).toPromise();
+    }
+
+    public getTokenByRefreshToken(refresh_token: string): Promise<Response> {
+        return this.http.get('http://' + window.location.hostname + ':8080/ajax/oauth2/token?refresh_token=' + refresh_token).toPromise();
     }
 }

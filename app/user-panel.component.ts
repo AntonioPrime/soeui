@@ -16,11 +16,30 @@ export class UserPanelComponent implements OnInit {
     ngOnInit() {
         let _this = this;
         setInterval(function () {
-            //_this.locationName = _this.getLocation();
-            if (!_this.user) {
-                _this.getUser(localStorage.getItem('token'));
+            console.log('expired :' + _this.isExpired());
+            if (_this.hasTimeStamp()) {
+                if (_this.isExpired()) {
+                    console.log('get new token');
+                    _this.service.getTokenByRefreshToken(localStorage.getItem('refresh_token'))
+                        .then(r => {
+                            localStorage.setItem('token', r.json().access_token);
+                            localStorage.setItem('time_stamp', _this.timeStamp());
+                        });
+                } else {
+                    if (!_this.user) {
+                        _this.getUser(localStorage.getItem('token'));
+                    }
+                    if (_this.user) {
+                        _this.service.getLocation(_this.user.userId)
+                        .then(loc => {
+                            let locationName = loc.json().solarSystem.name;
+                            if (locationName) {
+                                _this.locationName = locationName;
+                            }
+                        });
+                    }
+                }
             }
-            //console.log(_this.user.userName);
         }, 5000);
     }
 
@@ -28,12 +47,22 @@ export class UserPanelComponent implements OnInit {
         let test: Promise<any> =
             this.service.getUser(token);
         test.then(r => {
-            console.log(r.json() as User);
             this.user = r.json();
-        });
+        }).catch(error => console.log('error ' + error));
     }
 
-    //  private getLocation(): string {
-    //     this.service.getLocation();
-    //  }
+    private hasRefreshToken(): boolean { return localStorage.getItem('refresh_token') != null ? true : false; };
+
+    private hasTimeStamp(): boolean { return localStorage.getItem('time_stamp') != null ? true : false; };
+
+    private isExpired(): boolean {
+        let time_stamp = Number.parseInt(localStorage.getItem('time_stamp'));
+        let estimated = Date.now() - time_stamp;
+        console.log(estimated);
+        return estimated >= 0 ? true : false;
+    }
+
+    private timeStamp(): string {
+        return (Date.now() + (1170 * 1000)).toString();
+    }
 }
