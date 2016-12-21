@@ -11,8 +11,10 @@
     "test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\"",
     "test-once": "tsc && karma start karma.conf.js --single-run",
     "tsc": "tsc",
+    "clean": "rm -rf app",
     "tsc:w": "tsc -w",
-    "build": "npm run && tsc",
+    "minify": "uglifyjs app/bundle.js --screw-ie8 --compress --mangle --output app/bundle.min.js",
+    "build": "npm run clean && tsc",
     "build_prod": "npm run build && browserify -s main app/main.js > app/bundle.js && npm run minify"
   },
   "keywords": [],
