@@ -12,18 +12,6 @@ export class AuthService {
     ) { }
 
     public getTokens(code: string): Promise<any> {
-        // let headers = new Headers({
-        //     'Authorization': 'Basic ZTFjYzEyY2I3NTBmNDFkNmJkMDMwM2RhZjg4MWI1YjM6WWhlaUJVYWxHcTJROWlVSmRWQW94Z1V4dU1na0lhWHA3cmpoTUEyVg==',
-        //     'Content-Type': 'application/json',
-        //     'Host': 'login.eveonline.com'
-        // });
-        // let options = new RequestOptions({ method: 'POST' , headers: headers
-        //     });
-        // return this.http.post('https://login.eveonline.com/oauth/token',
-        //     JSON.stringify({
-        //         'grant_type': 'authorization_code',
-        //         'code': code
-        //     }), options).toPromise();
         return this.http.get('http://' + window.location.hostname + ':8080/ajax/oauth2/tokens?code=' + code).toPromise();
     }
 

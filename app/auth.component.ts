@@ -27,7 +27,7 @@ export class AuthComponent implements OnInit, OnDestroy {
                         localStorage.setItem('time_stamp', this.timeStamp());
                     });
                 }
-                //this.router.navigate(['/signatures']);
+                this.router.navigate(['/signatures']);
             });
     }
     ngOnDestroy() {

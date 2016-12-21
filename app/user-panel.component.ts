@@ -10,7 +10,7 @@ import { User } from './user';
 export class UserPanelComponent implements OnInit {
     private user: User;
     private locationName: string;
-    private loginUrl: string = 'http://' + window.location.hostname + ':8080' + '/oauth2/login';
+    private loginUrl: string = `http://${window.location.hostname}:8080/oauth2/login`;
     constructor(private service: AuthService) { }
 
     ngOnInit() {
