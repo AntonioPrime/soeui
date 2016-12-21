@@ -10,12 +10,12 @@ export class SignaturesService {
   constructor(private http: Http) { }
 
   replace(fresh: string, locationId: number): Promise<any> {
-    var token = localStorage.getItem('token');
-    var headers = new Headers({
+    let token = localStorage.getItem('token');
+    let headers = new Headers({
       'Content-Type': 'application/json',
       'token': token
     });
-    var options = new RequestOptions({ headers: headers });
+    let options = new RequestOptions({ headers: headers });
     return this.http.post(this.url, JSON.stringify(
       {
         fresh: fresh,
