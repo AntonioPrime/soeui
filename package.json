@@ -14,7 +14,7 @@
     "clean": "rm -rf app",
     "tsc:w": "tsc -w",
     "minify": "uglifyjs app/bundle.js --screw-ie8 --compress --mangle --output app/bundle.min.js",
-    "build": "npm run clean && tsc",
+    "build": "npm run && tsc",
     "build_prod": "npm run build && browserify -s main app/main.js > app/bundle.js && npm run minify"
   },
   "keywords": [],
