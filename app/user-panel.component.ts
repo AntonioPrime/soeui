@@ -10,6 +10,7 @@ import { User } from './user';
 export class UserPanelComponent implements OnInit {
     private user: User;
     private locationName: string;
+    private locationId: number;
     private loginUrl: string = `http://${window.location.hostname}:8080/oauth2/login`;
     constructor(private service: AuthService) { }
 
@@ -74,8 +75,13 @@ export class UserPanelComponent implements OnInit {
         this.service.getLocation(this.user.userId)
             .then(loc => {
                 let locationName = loc.json().solarSystem.name;
+                let locationId = loc.json().solarSystem.id;
                 if (locationName) {
                     this.locationName = locationName;
+                }
+                if (locationId) {
+                    this.locationId = locationId;
+                    localStorage.setItem('locationId', locationId);
                 }
             });
     }

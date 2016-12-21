@@ -18,7 +18,8 @@ export class SignaturesComponent implements OnInit {
 
   submit(signatures: string): void {
     $('#signatures').val('');
-    this.service.replace(signatures, 30002811).then(data => {
+    let locationId = Number.parseInt(localStorage.getItem('locationId'));
+    this.service.replace(signatures, locationId).then(data => {
       this.news = data.json().new;
       this.olds = data.json().old;
     });
